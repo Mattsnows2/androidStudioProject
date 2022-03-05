@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class SplashScreen extends AppCompatActivity {
 
-    Animation bottonAnim, topAnim;
+    Animation topAnim, rotateAnim;
     TextView textTest;
     ImageView logoImage;
     @Override
@@ -20,13 +20,15 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        bottonAnim= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+
         topAnim=AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        rotateAnim=AnimationUtils.loadAnimation(this, R.anim.rotate_image);
 
         textTest=findViewById(R.id.textView3);
         logoImage=findViewById(R.id.imageView);
         textTest.setAnimation(topAnim);
-        logoImage.setAnimation(bottonAnim);
+
+        logoImage.setAnimation(rotateAnim);
 
 
 
