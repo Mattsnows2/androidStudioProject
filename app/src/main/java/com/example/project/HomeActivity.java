@@ -13,6 +13,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public String Tag="inforamtion";
     Button buttonLogin;
+    Button buttonRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,5 +27,12 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        buttonRegister=findViewById(R.id.buttonRegister);
+        buttonRegister.setOnClickListener(view -> {
+            Intent intent = new Intent(HomeActivity.this, RegisterActivity.class);
+            startActivity(intent);
+        });
+
     }
 }
