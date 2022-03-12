@@ -11,11 +11,13 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class LoginActivity extends AppCompatActivity {
 
     Button loginButtonOnPageLogin;
-    EditText username;
-    EditText password;
+    TextInputEditText username;
+    TextInputEditText password;
     ProgressBar spinner;
     TextView errorMessage;
     @Override
@@ -23,8 +25,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         loginButtonOnPageLogin=findViewById(R.id.buttonLoginPage);
-        username=findViewById(R.id.editTextUsername);
-        password=findViewById(R.id.editTextPassword);
+        username=findViewById(R.id.username);
+        password=findViewById(R.id.password);
         spinner=findViewById(R.id.progressBar);
         errorMessage=findViewById(R.id.errorMessage);
 
@@ -35,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(username.getText().toString().equals("username") && password.getText().toString().equals("1234")){
+                if( username.getText().toString().equals("user") &&  password.getText().toString().equals("1234")){
                     spinner.setVisibility(View.VISIBLE);
                     new Handler().postDelayed(new Runnable() {
                         @Override
