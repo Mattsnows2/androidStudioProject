@@ -11,4 +11,5 @@
     <string name="errorMessage">Identifiants inccorects</string>
     <string name="login">Login</string>
     <string name="enterYourCapital">Enter your capital</string>
+    <string name="chooseCategories">Choose the catgories</string>
 </resources>
