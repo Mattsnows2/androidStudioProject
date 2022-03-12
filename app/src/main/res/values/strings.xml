@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Project</string>
+    <string name="titleApp">Budget App</string>
+    <string name="step2">Step2</string>
+    <string name="step1">Step1</string>
+    <string name="logoImage">picture of the logo</string>
+    <string name="signup">Sign-up</string>
+    <string name="signin">Sign-in</string>
+    <string name="pictureUsername">picture of the username</string>
+    <string name="picturePassword">picture of the password</string>
+    <string name="errorMessage">Identifiants inccorects</string>
+    <string name="login">Login</string>
+    <string name="enterYourCapital">Enter your capital</string>
 </resources>

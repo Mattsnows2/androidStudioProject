@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#ffffff"
-        android:text="Sign-in"
+        android:text="@string/signin"
         android:textColor="#6050dc
 "
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +21,8 @@
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintVertical_bias="0.433"
+        tools:text="@string" />
 
     <Button
         android:id="@+id/buttonRegister"
@@ -30,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:background="#ffffff"
-        android:text="Sign-up"
+        android:text="@string/signup"
         android:textColor="#6050dc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,9 +44,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="136dp"
         android:layout_marginEnd="8dp"
-        android:text="Budget  App"
+        android:text="@string/titleApp"
         android:textColor="#000000"
-        android:textSize="34dp"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +56,7 @@
         android:layout_width="231dp"
         android:layout_height="188dp"
         android:layout_marginBottom="44dp"
+        android:contentDescription="@string/logoImage"
         android:src="@drawable/currency"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
