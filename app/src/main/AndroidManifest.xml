@@ -10,8 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
-            android:name=".test"
+            android:name=".RegisterActivity"
             android:exported="true" />
+
         <activity
             android:name=".Step2Activity"
             android:exported="false" />
