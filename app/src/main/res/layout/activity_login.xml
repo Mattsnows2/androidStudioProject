@@ -87,7 +87,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/iconuser" />
+        />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -100,7 +100,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/iconpassword" />
+      />
 
     <ProgressBar
         android:id="@+id/progressBar"
