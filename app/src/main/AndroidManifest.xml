@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
-        <activity
-            android:name=".test"
-            android:exported="true" />
+
         <activity
             android:name=".Step2Activity"
             android:exported="false" />
@@ -20,7 +18,7 @@
             android:exported="true" />
         <activity
             android:name=".HomeConnectedActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SplashScreen"
             android:exported="false" />
