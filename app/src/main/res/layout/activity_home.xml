@@ -7,14 +7,14 @@
     android:background="@color/white"
     tools:context=".HomeActivity">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonCreateAccount"
 
         android:layout_width="300dp"
-        android:layout_height="44dp"
-        android:background="@drawable/corner"
+        android:layout_height="62dp"
+        android:backgroundTint="#5f769f"
 
-        android:backgroundTint="#DA2121"
+        app:cornerRadius="50dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,17 +22,17 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586"
+        app:layout_constraintVertical_bias="0.683"
         tools:text="CREATE ACCOUNT" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonLogin"
 
         android:layout_width="300dp"
-        android:layout_height="44dp"
-        android:background="@drawable/corner"
+        android:layout_height="62dp"
+        android:backgroundTint="#dd7456"
+        app:cornerRadius="50dp"
 
-        android:backgroundTint="#DA2121"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.724"
+        app:layout_constraintVertical_bias="0.799"
         tools:text="LOGIN" />
 
     <TextView
@@ -57,9 +57,9 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="183dp"
-        android:layout_height="154dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="227dp"
+        android:layout_height="223dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -80,7 +80,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="24dp"
         android:text="Terms &amp; conditions"
         android:textColor="#C4C4C4"
         app:layout_constraintEnd_toEndOf="parent"
