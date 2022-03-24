@@ -8,8 +8,9 @@
     android:background="#839ecb"
     >
 
+
     <TextView
-        android:id="@+id/textViewPageRegister"
+        android:id="@+id/textViewRegisterPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -66,10 +67,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fieldPassword"
+        android:id="@+id/textfield3"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="337dp"
         android:layout_height="58dp"
+        android:layout_marginTop="40dp"
         android:hint="password"
         app:boxCornerRadiusBottomEnd="50dp"
         app:boxCornerRadiusBottomStart="50dp"
@@ -77,11 +79,11 @@
         app:boxCornerRadiusTopStart="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="399dp">
+        app:layout_constraintTop_toBottomOf="@+id/textField"
+        tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password"
+            android:id="@+id/fieldPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/password"
@@ -96,8 +98,9 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPageRegister"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRegisterPage"
         app:srcCompat="@drawable/imagelogin" />
 
 

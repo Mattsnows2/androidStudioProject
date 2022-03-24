@@ -18,13 +18,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 public class RegisterActivity extends AppCompatActivity {
 
     Button registerButton;
     EditText email, password;
 
     private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,3 +80,5 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 }
+
+

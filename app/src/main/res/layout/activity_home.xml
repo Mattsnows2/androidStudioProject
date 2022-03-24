@@ -23,7 +23,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.683"
-        tools:text="CREATE ACCOUNT" />
+        android:text="CREATE ACCOUNT"
+        android:textColor="@color/white"
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonLogin"
@@ -41,7 +43,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.799"
-        tools:text="LOGIN" />
+        android:text="LOGIN"
+        android:textColor="@color/white"
+        />
 
     <TextView
         android:id="@+id/textView"
