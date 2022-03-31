@@ -10,7 +10,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class SplashScreen extends AppCompatActivity {
+
+    private DatabaseReference mDatabase;
 
     Animation topAnim, rotateAnim;
     TextView textTest;
@@ -18,6 +26,8 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mDatabase= FirebaseDatabase.getInstance("https://projectbilancio-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
         setContentView(R.layout.activity_splash_screen);
 
 
@@ -29,6 +39,12 @@ public class SplashScreen extends AppCompatActivity {
         textTest.setAnimation(topAnim);
 
         logoImage.setAnimation(rotateAnim);
+
+
+
+
+
+
 
 
 

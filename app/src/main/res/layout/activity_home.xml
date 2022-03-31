@@ -47,38 +47,25 @@
         android:textColor="@color/white"
         />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="BI£€N$IO"
-        android:textColor="@color/black"
-        android:textSize="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="227dp"
         android:layout_height="223dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@drawable/imagehome" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="92dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="124dp"
+        android:layout_width="161dp"
+        android:layout_height="123dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dollar" />
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView9"

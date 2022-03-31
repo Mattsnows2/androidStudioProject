@@ -3,6 +3,7 @@ package com.example.project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,10 +25,12 @@ public class RegisterActivity extends AppCompatActivity {
     EditText email, password;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mDatabase= FirebaseDatabase.getInstance("https://projectbilancio-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         registerButton=findViewById(R.id.buttonRegisterPage);
@@ -64,7 +67,12 @@ public class RegisterActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Log.d("yo","createWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
+
+
                             updateUI(user);
+                            Intent intentStep1 = new Intent(RegisterActivity.this, Step1Activity.class);
+                            startActivity(intentStep1);
                         }else{
                             Log.w("yo", "createWithEmail:failure", task.getException());
                             Toast.makeText(RegisterActivity.this,"Authentication failed", Toast.LENGTH_LONG).show();
