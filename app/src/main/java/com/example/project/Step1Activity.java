@@ -79,7 +79,7 @@ public class Step1Activity extends AppCompatActivity {
                           }
 
                       }
-                      Intent intentStep2=new Intent(Step1Activity.this, Step2Activity.class);
+                      Intent intentStep2=new Intent(Step1Activity.this, HomeConnectedActivity.class);
                       startActivity(intentStep2);
                   }
               }).start();

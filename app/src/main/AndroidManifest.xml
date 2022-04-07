@@ -16,9 +16,6 @@
             android:name=".RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".Step2Activity"
-            android:exported="false" />
-        <activity
             android:name=".Step1Activity"
             android:exported="true" />
         <activity
