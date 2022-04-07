@@ -11,8 +11,11 @@
         android:theme="@style/Theme.Project">
 
         <activity
-            android:name=".Step2Activity"
-            android:exported="false" />
+            android:name=".FirstSplashScreen"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
         <activity
             android:name=".Step1Activity"
             android:exported="true" />
@@ -21,7 +24,7 @@
             android:exported="true" />
         <activity
             android:name=".SplashScreen"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
