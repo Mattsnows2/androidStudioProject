@@ -11,15 +11,17 @@
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="252dp"
         android:layout_height="124dp"
+        android:layout_marginTop="100dp"
         android:backgroundTint="@color/blue"
         android:text="Capital"
         android:textColor="@color/darkestBlue"
         android:textSize="24sp"
         app:iconTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/darkBlue"
-        app:strokeWidth="2dp"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="130dp" />
+        app:strokeWidth="2dp" />
 
     <Button
         android:id="@+id/button4"
@@ -28,11 +30,11 @@
         android:layout_height="91dp"
         android:layout_marginTop="-40dp"
         android:backgroundTint="@color/red"
-        android:text="Capital"
+        android:text="Expenses"
         android:textColor="@color/darkestRed"
         android:textSize="24sp"
         app:iconTint="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
         app:strokeColor="@color/darkRed"
         app:strokeWidth="2dp" />
@@ -44,13 +46,28 @@
         android:layout_height="91dp"
         android:layout_marginTop="-40dp"
         android:backgroundTint="@color/green"
-        android:text="Capital"
+        android:text="Reciepts"
         android:textColor="@color/darkestGreen"
         android:textSize="24sp"
         app:iconTint="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
         app:strokeColor="@color/darkGreen"
         app:strokeWidth="2dp" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="375dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        
+        <fragment
+            android:id="@+id/global_history"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
