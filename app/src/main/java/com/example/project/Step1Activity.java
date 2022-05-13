@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.android.material.textfield.TextInputEditText;
@@ -17,17 +16,28 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import Models.User;
+import ViewModel.UserViewModel;
+import dao.UserDAO;
+import repository.UserRepository;
+import androidx.lifecycle.ViewModelProvider;
+
+
 public class Step1Activity extends AppCompatActivity {
 
     Button nextStep;
     LinearProgressIndicator mProgressBar;
     TextInputEditText textCapital;
+    UserRepository mUserRepository;
+    UserViewModel mUserViewModel;
     private int i =0;
     private Handler hdlr = new Handler();
     private DatabaseReference mDatabase;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if( user!=null){
 
@@ -45,8 +55,15 @@ public class Step1Activity extends AppCompatActivity {
         textCapital=findViewById(R.id.capital);
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        User newUser = new User(email, null, null, null);
-        mDatabase.child("users").child(userId).setValue(newUser);
+        User newUser = new User(userId,email, 0, 0, 0d);
+        String userId2 =  String.valueOf(userId);
+        mDatabase.child("users").child(userId2).setValue(newUser);
+        mUserViewModel.insert(new User(userId, email, 4,4,0d));
+
+
+
+        mUserViewModel.insert(new User(userId, email, 0,0,0d));
+
 
         nextStep.setOnClickListener(new View.OnClickListener() {
 
@@ -90,4 +107,6 @@ public class Step1Activity extends AppCompatActivity {
         });
 
     }
+
+
 }
