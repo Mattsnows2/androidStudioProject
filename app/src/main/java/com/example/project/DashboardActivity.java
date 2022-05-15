@@ -22,11 +22,11 @@ public class DashboardActivity extends AppCompatActivity {
         receipts_btn = findViewById(R.id.receiptsBtn);
         expenses_btn = findViewById(R.id.expensesBtn);
 
-        NavController navController = Navigation.findNavController(this, R.id.capitalFragment);
+        NavController navController = Navigation.findNavController(this, R.id.containerFragment);
 
         capital_btn.setOnClickListener(v-> navController.navigate(R.id.capitalFragment));
-        /*receipts_btn.setOnClickListener(v-> navController.navigate(R.id.capitalFragment));
-        expenses_btn.setOnClickListener(v-> navController.navigate(R.id.capitalFragment));*/
+        receipts_btn.setOnClickListener(v-> navController.navigate(R.id.capitalFragment));
+        expenses_btn.setOnClickListener(v-> navController.navigate(R.id.capitalFragment));
 
 
     }

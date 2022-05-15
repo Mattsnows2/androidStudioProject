@@ -8,7 +8,7 @@
 <fragment
     android:id="@+id/capitalFragment"
     android:name="com.example.project.CapitalFragment"
-    android:label="fragment_one"
-    tools:layout="@layout/fragment_capital" />
+    android:label="fragment_transaction_list"
+    tools:layout="@layout/fragment_transaction_list" />
 
 </navigation>

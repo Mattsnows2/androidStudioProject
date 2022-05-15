@@ -1,71 +1,43 @@
 package com.example.project;
 
-import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.example.project.placeholder.PlaceholderContent;
+import androidx.fragment.app.ListFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * A fragment representing a list of Items.
- */
-public class CapitalFragment extends Fragment {
+import java.util.ArrayList;
 
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    private int mColumnCount = 4;
+public class CapitalFragment extends ListFragment {
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public CapitalFragment() {
+    RecyclerView fragment_transaction_list;
+    TransactionAdapter transactionAdapter;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_transaction_list, container, false);
     }
 
-    @SuppressWarnings("unused")
-    /*public static CapitalFragment newInstance(int columnCount) {
-        CapitalFragment fragment = new CapitalFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }*/
-/*
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_dashboard);
 
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
-    }*/
+        fragment_transaction_list = findViewById(R.id.transactionList);
+        fragment_transaction_list.hasFixedSize();
+        fragment_transaction_list.setLayoutManager(new LinearLayoutManager(this));
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_transaction_list, container, false);
-        /* FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.frameTransactions, new transactionFragment());
-        transaction.commit();*/
+        ArrayList<Transaction> transactions = new ArrayList<>();
+        transactions.add(new Transaction("food", 5, "€", R.drawable.rocket));
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new MytransactionRecyclerViewAdapter(PlaceholderContent.ITEMS));
-        }
-        return view;
+        transactionAdapter = new TransactionAdapter(transactions);
+
+        transactionAdapter.setOnClickListener(transaction -> Toast.makeText(this, transaction.getLabel(), Toast.LENGTH_SHORT).show());
+
+        fragment_transaction_list.setAdapter(transactionAdapter);
     }
 }
