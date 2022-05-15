@@ -24,4 +24,7 @@
     <string name="next">Suivant</string>
     <string name="sign_in">Se connecter</string>
     <string name="create_account">Créer un compte</string>
+    <string name="step2">Etape 2</string>
+    <string name="step1">Etape 1</string>
+    <string name="termsAndConditons">Termes &amp; conditions</string>
 </resources>

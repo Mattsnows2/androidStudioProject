@@ -24,4 +24,7 @@
     <string name="capital">Capital</string>
     <string name="next">Próximo</string>
     <string name="create_account">Crear una cuenta</string>
+    <string name="termsAndConditons">Terms &amp; conditions</string>
+    <string name="step2">Step2</string>
+    <string name="step1">Step1</string>
 </resources>
