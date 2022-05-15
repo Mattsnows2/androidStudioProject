@@ -45,8 +45,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.github.blocoio:faker:1.2.9'
-    // ...
-
+    //Charts library
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     // Unit Testing
     testImplementation 'com.github.blocoio:faker:1.2.9'
 
