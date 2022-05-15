@@ -2,9 +2,10 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.RelativeLayout;
+import android.os.Handler;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -24,10 +25,18 @@ public class ChartTotal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       /* Intent intent = getIntent();
+        Bundle args = intent.getBundleExtra("BUNDLE");
+        ArrayList<Expense> listOfExpenses = (ArrayList<Expense>) args.getSerializable("ARRAYLIST");*/
         setContentView(R.layout.activity_charts);
         pieChart = findViewById(R.id.pieChart);
+        //TEST
+        ArrayList<Expense> listOfExpenses = new ArrayList<>();
+        listOfExpenses.add(new Expense("FOOD", 100));
+        listOfExpenses.add(new Expense("Car", 500));
+        listOfExpenses.add(new Expense("Games", 200));
         setupPieChart();
-        loadPieChartData();
+        loadPieChartData(listOfExpenses);
     }
 
     private void setupPieChart() {
@@ -35,7 +44,7 @@ public class ChartTotal extends AppCompatActivity {
         pieChart.setUsePercentValues(true);
         pieChart.setEntryLabelTextSize(12);
         pieChart.setEntryLabelColor(Color.BLACK);
-        pieChart.setCenterText("Spending by Category");
+        pieChart.setCenterText("Total Expenses");
         pieChart.setHoleColor(Color.TRANSPARENT);
         pieChart.setCenterTextSize(24);
         pieChart.getDescription().setEnabled(false);
@@ -48,13 +57,15 @@ public class ChartTotal extends AppCompatActivity {
         l.setEnabled(true);
     }
 
-    private void loadPieChartData() {
+    private void loadPieChartData(ArrayList<Expense> list) {
         ArrayList<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry(0.2f, "Food & Dining"));
-        entries.add(new PieEntry(0.15f, "Medical"));
-        entries.add(new PieEntry(0.10f, "Entertainment"));
-        entries.add(new PieEntry(0.25f, "Electricity and Gas"));
-        entries.add(new PieEntry(0.3f, "Housing"));
+        float total = 0;
+        for (Expense obj:list) {
+            total += obj.getAmount();
+        }
+        for (Expense obj:list) {
+            entries.add(new PieEntry((obj.getAmount()/total), obj.getType()));
+        }
 
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: ColorTemplate.MATERIAL_COLORS) {
@@ -72,11 +83,12 @@ public class ChartTotal extends AppCompatActivity {
         data.setDrawValues(true);
         data.setValueFormatter(new PercentFormatter(pieChart));
         data.setValueTextSize(12f);
-        data.setValueTextColor(Color.BLACK);
+        data.setValueTextColor(Color.WHITE);
 
         pieChart.setData(data);
         pieChart.invalidate();
 
         pieChart.animateY(1400, Easing.EaseInOutExpo);
     }
+
 }
