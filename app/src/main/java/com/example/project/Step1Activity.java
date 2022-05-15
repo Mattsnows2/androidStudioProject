@@ -39,7 +39,7 @@ public class Step1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if( user!=null){
+        if(user!=null){
 
 
 

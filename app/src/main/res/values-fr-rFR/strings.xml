@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Project</string>
     <string name="apply">Appliquer</string>
     <string name="dark_theme">Thème sombre</string>
     <string name="settings">Paramètres</string>
@@ -24,4 +23,8 @@
     <string name="next">Suivant</string>
     <string name="sign_in">Se connecter</string>
     <string name="create_account">Créer un compte</string>
+    <string name="set_email">Définir mail</string>
+    <string name="submit">Envoyer</string>
+    <string name="profile">Modifier le profil</string>
+    <string name="select_your_currency">Choisissez votre monnaie</string>
 </resources>

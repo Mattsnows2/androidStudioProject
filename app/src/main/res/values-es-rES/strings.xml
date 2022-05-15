@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Project</string>
     <string name="errorMessage">Credenciales incorrectas</string>
     <string name="login">Conexión</string>
     <string name="enterYourCapital">"Ingresa tu capital "</string>
@@ -24,4 +23,8 @@
     <string name="capital">Capital</string>
     <string name="next">Próximo</string>
     <string name="create_account">Crear una cuenta</string>
+    <string name="set_email">"Establecer correo electrónico "</string>
+    <string name="submit">Entregar</string>
+    <string name="profile">Editar perfil</string>
+    <string name="select_your_currency">Seleccione su moneda</string>
 </resources>
