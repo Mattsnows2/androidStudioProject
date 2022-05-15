@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".DashboardActivity">
 
     <Button
@@ -13,7 +14,7 @@
         android:layout_height="124dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/blue"
-        android:text="Capital"
+        android:text="@string/capital"
         android:textColor="@color/darkestBlue"
         android:textSize="24sp"
         app:iconTint="@color/black"
@@ -31,7 +32,7 @@
         android:layout_marginTop="-30dp"
         android:layout_marginEnd="50dp"
         android:backgroundTint="@color/red"
-        android:text="Expenses"
+        android:text="@string/expenses"
         android:textColor="@color/darkestRed"
         android:textSize="24sp"
         app:iconTint="@color/black"
@@ -48,7 +49,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="-30dp"
         android:backgroundTint="@color/green"
-        android:text="Reciepts"
+        android:text="@string/receipts"
         android:textColor="@color/darkestGreen"
         android:textSize="24sp"
         app:iconTint="@color/black"
@@ -64,18 +65,15 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.15" />
 
-    <fragment
-        android:id="@+id/containerFragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        app:defaultNavHost="true"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactionList"
+        android:layout_width="382dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/receiptsBtn"
-        app:navGraph="@navigation/dashboard_navigation" />
-
+        tools:listitem="@layout/capital_list_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

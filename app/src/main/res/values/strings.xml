@@ -12,4 +12,8 @@
     <string name="login">Login</string>
     <string name="enterYourCapital">Enter your capital</string>
     <string name="chooseCategories">Choose the catgories</string>
+    <string name="capital">Capital</string>
+    <string name="expenses">Expenses</string>
+    <string name="receipts">receipts</string>
+    <string name="todo">TODO</string>
 </resources>

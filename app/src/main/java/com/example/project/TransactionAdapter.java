@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
 
-    private ArrayList<Transaction> transactions;
+    private final ArrayList<Transaction> transactions;
     private OnClickListener onClickListener;
 
     TransactionAdapter(ArrayList<Transaction> transactions) {
@@ -25,7 +25,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.fragment_capital, parent, false);
+        View view = inflater.inflate(R.layout.capital_list_item, parent, false);
         return new ViewHolder(view);
     }
 
