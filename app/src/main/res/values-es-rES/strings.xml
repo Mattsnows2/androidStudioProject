@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Project</string>
+    <string name="errorMessage">Credenciales incorrectas</string>
+    <string name="login">Conexión</string>
+    <string name="enterYourCapital">"Ingresa tu capital "</string>
+    <string name="chooseCategories">"Elegir la categoría "</string>
+    <string name="settings">Configuraciones</string>
+    <string name="dark_theme">"Tema oscuro "</string>
+    <string name="apply">Aplicar</string>
+    <string name="picturePassword">" Imagen de contraseña"</string>
+    <string name="pictureUsername">"Imagen de usuario "</string>
+    <string name="signin">Conectarse</string>
+    <string name="signup">Inscribirse</string>
+    <string name="logoImage">" Imagen del logotipo"</string>
+    <string name="language">Habla</string>
+    <string name="name">Apellido</string>
+    <string name="sign_in">Conectarse</string>
+    <string name="username">"Nombre de usuario "</string>
+    <string name="password">clave</string>
+    <string name="go">Vamos</string>
+    <string name="keep_me_logged_in">"Mantenme conectado "</string>
+    <string name="good2seeU">Bueno verte señor</string>
+    <string name="capital">Capital</string>
+    <string name="next">Próximo</string>
+    <string name="create_account">Crear una cuenta</string>
+</resources>

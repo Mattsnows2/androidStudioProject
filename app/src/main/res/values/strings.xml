@@ -1,15 +1,31 @@
 <resources>
     <string name="app_name">Project</string>
-    <string name="titleApp">Budget App</string>
+    <string name="titleApp" translatable="false">Budget App</string>
     <string name="step2">Step2</string>
     <string name="step1">Step1</string>
     <string name="logoImage">picture of the logo</string>
     <string name="signup">Sign-up</string>
     <string name="signin">Sign-in</string>
-    <string name="pictureUsername">picture of the username</string>
-    <string name="picturePassword">picture of the password</string>
+    <string name="pictureUsername">Username\'s picture</string>
+    <string name="picturePassword">Password\'s picture</string>
     <string name="errorMessage">Identifiants inccorects</string>
     <string name="login">Login</string>
     <string name="enterYourCapital">Enter your capital</string>
     <string name="chooseCategories">Choose the catgories</string>
+    <string name="settings">Settings</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="apply">Apply</string>
+    <string name="dollar">$</string>
+    <string name="language">Language</string>
+    <string name="create_account">Create Account</string>
+    <string name="homeconnected">HomeConnected</string>
+    <string name="sign_in">Sign In</string>
+    <string name="username">Username</string>
+    <string name="password">password</string>
+    <string name="go">Go</string>
+    <string name="keep_me_logged_in">Keep Me Logged in</string>
+    <string name="good2seeU">Good to see you sir</string>
+    <string name="capital">Capital</string>
+    <string name="next">Next</string>
+    <string name="name">Name</string>
 </resources>
