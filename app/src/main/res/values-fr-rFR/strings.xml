@@ -23,8 +23,9 @@
     <string name="next">Suivant</string>
     <string name="sign_in">Se connecter</string>
     <string name="create_account">Créer un compte</string>
-    <string name="set_email">Définir mail</string>
-    <string name="submit">Envoyer</string>
-    <string name="profile">Modifier le profil</string>
+    <string name="termsAndConditons">Termes &amp; conditions</string>
     <string name="select_your_currency">Choisissez votre monnaie</string>
+    <string name="profile">Modifier le profil</string>
+    <string name="submit">Enregistrer</string>
+    <string name="set_email">Envoyer email</string>
 </resources>
