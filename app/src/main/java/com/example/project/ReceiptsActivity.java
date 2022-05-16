@@ -8,12 +8,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class ReceiptsActivity extends AppCompatActivity {
 
     RecyclerView receiptsList;
     TransactionAdapter transactionAdapter;
+    FloatingActionButton fab;
+
 
     static final String EXTRA_Transaction_label = "com.example.project.TransactionActivity";
     static final String EXTRA_Transaction_amount = "com.example.project.TransactionActivity";
@@ -45,6 +49,12 @@ public class ReceiptsActivity extends AppCompatActivity {
             intent.putExtra(EXTRA_Transaction_category, transaction.getCategory());
             intent.putExtra(EXTRA_Transaction_type, "expenses");
 
+            startActivity(intent);
+        });
+
+        fab = findViewById(R.id.fab_expenses);
+        fab.setOnClickListener( v -> {
+            Intent intent = new Intent(ReceiptsActivity.this, SetTransactionActivity.class);
             startActivity(intent);
         });
 
