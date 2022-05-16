@@ -28,7 +28,7 @@ public class SetTransactionActivity extends AppCompatActivity {
     EditText label;
     Button validate_btn;
 
-    String petType;
+
 
     private DatabaseReference mDatabase;
 
@@ -54,14 +54,15 @@ public class SetTransactionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_set_transaction);
         operation=findViewById(R.id.editTextOperation);
         categories=findViewById(R.id.categories);
+        typeOperation=findViewById(R.id.editTextTypeOperation);
         validate_btn=findViewById(R.id.buttonAddOperation);
         label=findViewById(R.id.label);
         String s4 = "receipts";
         validate_btn.setOnClickListener(v -> {
             final String[] capital3 = new String[1];
             Log.d("tdst", typeOperation.getText().toString());
-            if(petType.equals(s4)){
-                Receipts receipts = new Receipts("label",categories.getText().toString(),Double.parseDouble(operation.getText().toString()));
+            if(typeOperation.getText().toString().equals(s4)){
+                Receipts receipts = new Receipts(label.getText().toString(),categories.getText().toString(),Double.parseDouble(operation.getText().toString()));
                 mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("receipts").child(String.valueOf(date)).setValue(receipts);
 
                 Task<DataSnapshot> capital2 =  mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").get().addOnCompleteListener(task -> {
