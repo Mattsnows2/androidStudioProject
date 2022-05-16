@@ -15,6 +15,10 @@
         <activity
             android:name=".FirstSplashScreen"
             android:exported="true" />
+
+        <activity
+            android:name=".ChartTotal"
+            android:exported="true" />
         <activity
             android:name=".RegisterActivity"
             android:exported="true" />
