@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Project</string>
-    <string name="titleApp">Budget App</string>
-    <string name="step2">Step2</string>
-    <string name="step1">Step1</string>
+    <string name="app_name" translatable="false">BI£€N$io</string>
+    <string name="titleApp" translatable="false">Budget Application</string>
+    <string name="step2" translatable="false">Step2</string>
+
+    <string name="step1" translatable="false">Step1</string>
     <string name="logoImage">picture of the logo</string>
     <string name="signup">Sign-up</string>
     <string name="signin">Sign-in</string>

@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -28,7 +29,14 @@ public class ReceiptsActivity extends AppCompatActivity {
 
         transactionAdapter = new TransactionAdapter(receipts);
 
-        transactionAdapter.setOnClickListener(transaction -> Toast.makeText(this, transaction.getLabel(), Toast.LENGTH_SHORT).show());
+        transactionAdapter.setOnClickListener(v -> {
+            Intent intent = new Intent(ReceiptsActivity.this, TransactionActivity.class);
+            /*intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
+            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
+            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
+            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());*/
+            startActivity(intent);
+        });
 
         receiptsList.setAdapter(transactionAdapter);
     }

@@ -33,7 +33,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         viewHolder.label.setText(transactions.get(position).getLabel());
         viewHolder.amount.setText(String.valueOf(transactions.get(position).getAmount()));
         viewHolder.currency.setText(transactions.get(position).getCurrency());
-        //viewHolder.name.setText(transaction.get(position).getDate());
+        viewHolder.date.setText((CharSequence) transactions.get(position).getDate());
         viewHolder.icon.setImageResource(transactions.get(position).getIconId());
     }
 
@@ -46,7 +46,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         TextView label;
         TextView amount;
         TextView currency;
-        //TextView date;
+        TextView date;
         ImageView icon;
 
         ViewHolder(View itemView) {
@@ -54,7 +54,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             label = itemView.findViewById(R.id.tv_label);
             amount = itemView.findViewById(R.id.tv_amount);
             currency = itemView.findViewById(R.id.tv_currency);
-            //date = itemView.findViewById(R.id.tv_date);
+            date = itemView.findViewById(R.id.tv_date);
             icon = itemView.findViewById(R.id.iv_icon);
 
             itemView.setOnClickListener(v -> onClickListener.onClick(transactions.get(getBindingAdapterPosition())));

@@ -35,6 +35,16 @@
         android:layout_weight="1"
         android:text="@string/todo" />
 
+    <EditText
+        android:id="@+id/tv_date"
+        style="@style/TransactionLabel"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/text_margin"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="date" />
+
     <ImageView
         android:id="@+id/iv_icon"
         android:layout_width="wrap_content"

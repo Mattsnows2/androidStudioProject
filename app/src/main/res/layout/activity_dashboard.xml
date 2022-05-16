@@ -30,17 +30,18 @@
 
         android:layout_width="252dp"
         android:layout_height="124dp"
+        android:layout_marginStart="75dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="75dp"
         android:background="@color/blue"
-
         android:backgroundTint="@color/blue"
+        android:gravity="center"
         android:text="@string/capital"
-        android:paddingTop="40dp"
-        android:paddingLeft="80dp"
         android:textColor="@color/darkestBlue"
         android:textSize="24sp"
         app:iconTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/frameTransactions"
         app:strokeColor="@color/darkBlue"
@@ -66,7 +67,7 @@
     <Button
         android:id="@+id/receiptsBtn"
         style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="wrap_content"
+        android:layout_width="155dp"
         android:layout_height="91dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="-30dp"
@@ -75,6 +76,7 @@
         android:textColor="@color/darkestGreen"
         android:textSize="24sp"
         app:iconTint="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/expensesBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/capitalBtn"
         app:strokeColor="@color/darkGreen"
@@ -87,15 +89,26 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.15" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/transactionList"
-        android:layout_width="382dp"
+    <ScrollView
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/receiptsBtn"
-        tools:listitem="@layout/capital_list_item" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/transactionList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/receiptsBtn"
+            tools:listitem="@layout/capital_list_item" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

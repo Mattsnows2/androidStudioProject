@@ -1,8 +1,11 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,7 +31,14 @@ public class ExpensesActivity extends AppCompatActivity {
 
         transactionAdapter = new TransactionAdapter(expenses);
 
-        transactionAdapter.setOnClickListener(transaction -> Toast.makeText(this, transaction.getLabel(), Toast.LENGTH_SHORT).show());
+        transactionAdapter.setOnClickListener(v -> {
+            Intent intent = new Intent(ExpensesActivity.this, TransactionActivity.class);
+            /*intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
+            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
+            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
+            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());*/
+            startActivity(intent);
+        });
 
         expensesList.setAdapter(transactionAdapter);
     }

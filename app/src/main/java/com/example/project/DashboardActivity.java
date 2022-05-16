@@ -3,13 +3,14 @@ package com.example.project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,7 +32,7 @@ public class DashboardActivity extends AppCompatActivity {
    // UserViewModel mUserViewModel;
     private DatabaseReference mDatabase;
 
-    static final String EXTRA_PET_NAME = "com.example.project.PET_NAME";
+    static final String EXTRA_Transaction = "com.example.project.TransactionActivity";
 
     Toolbar toolbar;
 
@@ -43,8 +44,6 @@ public class DashboardActivity extends AppCompatActivity {
       //  mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user!=null){
-
-
 
         }else{
             Log.i("testConnection","pas connécté");
@@ -64,12 +63,11 @@ public class DashboardActivity extends AppCompatActivity {
                     capital = findViewById(R.id.capitalBtn);
 
                     capital.setText(capital3[0]);
-
                 }
             }
         });
-        setContentView(R.layout.activity_dashboard);
 
+        setContentView(R.layout.activity_dashboard);
 
         receipts_btn = findViewById(R.id.receiptsBtn);
         receipts_btn.setOnClickListener(v -> {
@@ -104,21 +102,28 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
         capitalList.setAdapter(transactionAdapter);
 
         toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
 
-        /*toolbar.setOnClickListener(v -> {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.appbar, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.action_favorite) {
             Intent intent = new Intent(DashboardActivity.this, SettingsActivity.class);
             startActivity(intent);
-        });
-
-        toolbar.setOnClickListener(v -> {
-            Intent intent = new Intent(DashboardActivity.this, AccountActivity.class);
+        } else if (itemId == R.id.action_settings) {
+            Intent intent = new Intent(DashboardActivity.this, UserActivity.class);
             startActivity(intent);
-        });*/
-
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

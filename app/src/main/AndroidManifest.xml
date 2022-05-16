@@ -42,6 +42,15 @@
             android:name=".HomeActivity"
             android:exported="true" />
         <activity
+            android:name=".SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ReceiptsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ExpensesActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

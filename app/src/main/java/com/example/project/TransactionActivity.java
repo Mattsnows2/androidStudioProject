@@ -28,10 +28,22 @@ public class TransactionActivity extends AppCompatActivity {
     EditText typeOperation;
     EditText categories;
     TextView label;
-    Button button;
+    Button validate_btn;
+
+    TextView petTransacTV;
+
     private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //petTransacTV = findViewById(R.id.petTransacTV);
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction)) {
+            String petName = bundle.getString(DashboardActivity.EXTRA_Transaction);
+            petTransacTV.setText(petName);
+        }
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user!=null){
@@ -43,14 +55,14 @@ public class TransactionActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         mDatabase= FirebaseDatabase.getInstance("https://projectbilancio-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
-         setContentView(R.layout.activity_transaction);
+        setContentView(R.layout.activity_transaction);
         operation=findViewById(R.id.editTextOperation);
         typeOperation=findViewById(R.id.editTextTypeOperation);
         categories=findViewById(R.id.categories);
-        button=findViewById(R.id.buttonAddOperation);
+        validate_btn=findViewById(R.id.buttonAddOperation);
         label=findViewById(R.id.label);
         String s4 = "receipts";
-        button.setOnClickListener(new View.OnClickListener() {
+        validate_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String[] capital3 = new String[1];
@@ -71,7 +83,6 @@ public class TransactionActivity extends AppCompatActivity {
                                 mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").setValue((Double.parseDouble(capital3[0])+Double.parseDouble(operation.getText().toString())));
                                 Intent intentStep2=new Intent(TransactionActivity.this, DashboardActivity.class);
                                 startActivity(intentStep2);
-
                             }
                         }
                     });
