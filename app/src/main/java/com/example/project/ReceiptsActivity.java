@@ -15,6 +15,13 @@ public class ReceiptsActivity extends AppCompatActivity {
     RecyclerView receiptsList;
     TransactionAdapter transactionAdapter;
 
+    static final String EXTRA_Transaction_label = "com.example.project.TransactionActivity";
+    static final String EXTRA_Transaction_amount = "com.example.project.TransactionActivity";
+    static final String EXTRA_Transaction_currency = "com.example.project.TransactionActivity";
+    //static final String EXTRA_Transaction_date = "com.example.project.TransactionActivity";
+    static final String EXTRA_Transaction_category = "com.example.project.TransactionActivity";
+    static final String EXTRA_Transaction_type = "com.example.project.TransactionActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,16 +32,19 @@ public class ReceiptsActivity extends AppCompatActivity {
         receiptsList.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<Transaction> receipts = new ArrayList<>();
-        receipts.add(new Transaction("cine", 16, "dkk", R.drawable.password));
+        receipts.add(new Transaction("cine", 16, "dkk", R.drawable.password, "1"));
 
         transactionAdapter = new TransactionAdapter(receipts);
 
-        transactionAdapter.setOnClickListener(v -> {
+        transactionAdapter.setOnClickListener(transaction -> {
             Intent intent = new Intent(ReceiptsActivity.this, TransactionActivity.class);
-            /*intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
-            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
-            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
-            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());*/
+            intent.putExtra(EXTRA_Transaction_label, transaction.getLabel());
+            intent.putExtra(EXTRA_Transaction_amount, String.valueOf(transaction.getAmount()));
+            intent.putExtra(EXTRA_Transaction_currency, transaction.getCurrency());
+            //intent.putExtra(EXTRA_Transaction_date, transaction.getText());
+            intent.putExtra(EXTRA_Transaction_category, transaction.getCategory());
+            intent.putExtra(EXTRA_Transaction_type, "expenses");
+
             startActivity(intent);
         });
 

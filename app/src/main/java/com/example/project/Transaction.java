@@ -6,15 +6,19 @@ public class Transaction {
     private String label;
     private int amount;
     private String currency;
-    private Date date;
+    //private Date date;
     private int iconId;
+    private String category;
+    //private int type; //1: receipts, 2: expenses
 
-    Transaction(String label, int amount, String currency, int iconId) {
+    Transaction(String label, int amount, String currency, int iconId, String category) {
         this.label = label;
         this.amount = amount;
         this.currency = currency;
-        this.date = date;
+        this.category = category;
+        //this.date = date;
         this.iconId = iconId;
+        //this.type = type;
     }
 
     public String getLabel() {
@@ -29,11 +33,11 @@ public class Transaction {
         return currency;
     }
 
-    public Date getDate() {
-        return date;
-    }
+   // public Date getDate() { return date; }
 
-    public int getIconId() {
-        return iconId;
-    }
+    public int getIconId() { return iconId; }
+
+    public String getCategory() { return category; }
+
+    //public int getType() { return type; }
 }

@@ -33,7 +33,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         viewHolder.label.setText(transactions.get(position).getLabel());
         viewHolder.amount.setText(String.valueOf(transactions.get(position).getAmount()));
         viewHolder.currency.setText(transactions.get(position).getCurrency());
-        viewHolder.date.setText((CharSequence) transactions.get(position).getDate());
+        //viewHolder.date.setText((CharSequence) transactions.get(position).getDate());
         viewHolder.icon.setImageResource(transactions.get(position).getIconId());
     }
 

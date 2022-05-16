@@ -29,23 +29,54 @@ public class TransactionActivity extends AppCompatActivity {
     EditText operation;
     EditText typeOperation;
     EditText categories;
-    TextView label;
+    EditText label;
     Button validate_btn;
 
-    TextView petTransacTV;
+    TextView petTransacTV_label;
+    TextView petTransacTV_amount;
+    TextView petTransacTV_currency;
+    TextView petTransacTV_date;
+    TextView petTransacTV_category;
+
+    String petType;
 
     private DatabaseReference mDatabase;
     Date date = new Date();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        petTransacTV = findViewById(R.id.petTransacTV);
+        petTransacTV_label = findViewById(R.id.petTransac_label_TV);
+        petTransacTV_amount = findViewById(R.id.petTransac_amount_TV);
+        petTransacTV_currency = findViewById(R.id.petTransac_currency_TV);
+        petTransacTV_date = findViewById(R.id.petTransac_date_TV);
+        petTransacTV_category = findViewById(R.id.petTransac_category_TV);
+
         Bundle bundle = getIntent().getExtras();
 
-        if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction)) {
-            String petName = bundle.getString(DashboardActivity.EXTRA_Transaction);
-            petTransacTV.setText(petName);
+        if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_label)) {
+            String petLabel = bundle.getString(DashboardActivity.EXTRA_Transaction_label);
+            petTransacTV_label.setText(petLabel);
         }
+        if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_amount)) {
+            String petAmount = bundle.getString(DashboardActivity.EXTRA_Transaction_amount);
+            petTransacTV_amount.setText(petAmount);
+        }
+        if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_currency)) {
+            String petCurrency = bundle.getString(DashboardActivity.EXTRA_Transaction_currency);
+            petTransacTV_currency.setText(petCurrency);
+        }
+        /*if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_date)) {
+            String petDate = bundle.getString(DashboardActivity.EXTRA_Transaction_date);
+            petTransacTV_date.setText(petDate);
+        }*/
+        if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_category)) {
+            String petCategory = bundle.getString(DashboardActivity.EXTRA_Transaction_category);
+            petTransacTV_category.setText(petCategory);
+        }
+        if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_type)) {
+            petType = bundle.getString(DashboardActivity.EXTRA_Transaction_type);
+        }
+
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -58,59 +89,49 @@ public class TransactionActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         mDatabase= FirebaseDatabase.getInstance("https://projectbilancio-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
-        setContentView(R.layout.activity_transaction);
+        setContentView(R.layout.activity_set_transaction);
         operation=findViewById(R.id.editTextOperation);
-        typeOperation=findViewById(R.id.editTextTypeOperation);
         categories=findViewById(R.id.categories);
         validate_btn=findViewById(R.id.buttonAddOperation);
         label=findViewById(R.id.label);
         String s4 = "receipts";
-        validate_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String[] capital3 = new String[1];
-                Log.d("tdst", typeOperation.getText().toString());
-                if(typeOperation.getText().toString().equals(s4)){
-                    Receipts receipts = new Receipts("lebel",categories.getText().toString(),Double.parseDouble(operation.getText().toString()));
-                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("receipts").child(String.valueOf(date)).setValue(receipts);
+        validate_btn.setOnClickListener(v -> {
+            final String[] capital3 = new String[1];
+            Log.d("tdst", typeOperation.getText().toString());
+            if(petType.equals(s4)){
+                Receipts receipts = new Receipts("lebel",categories.getText().toString(),Double.parseDouble(operation.getText().toString()));
+                mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("receipts").child(String.valueOf(date)).setValue(receipts);
 
-                    Task<DataSnapshot> capital2 =  mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if (!task.isSuccessful()) {
-                                Log.e("firebase", "Error getting data", task.getException());
-                            }
-                            else {
-                                Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                                capital3[0] = String.valueOf(task.getResult().getValue());
-                                mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").setValue((Double.parseDouble(capital3[0])+Double.parseDouble(operation.getText().toString())));
-                                Intent intentStep2=new Intent(TransactionActivity.this, DashboardActivity.class);
-                                startActivity(intentStep2);
-                            }
-                        }
-                    });
-                    }else{
-                    Expenses expenses = new Expenses("label",categories.getText().toString(), Double.parseDouble((operation.getText().toString())));
-                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("expenses").child(String.valueOf(date)).setValue(expenses);
+                Task<DataSnapshot> capital2 =  mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").get().addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    }
+                    else {
+                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                        capital3[0] = String.valueOf(task.getResult().getValue());
+                        mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").setValue((Double.parseDouble(capital3[0])+Double.parseDouble(operation.getText().toString())));
+                        Intent intentStep2=new Intent(TransactionActivity.this, DashboardActivity.class);
+                        startActivity(intentStep2);
+                    }
+                });
+                }else{
+                Expenses expenses = new Expenses("label",categories.getText().toString(), Double.parseDouble((operation.getText().toString())));
+                mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("expenses").child(String.valueOf(date)).setValue(expenses);
 
-                    Task<DataSnapshot> capital2 =  mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if (!task.isSuccessful()) {
-                                Log.e("firebase", "Error getting data", task.getException());
-                            }
-                            else {
-                                Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                                capital3[0] = String.valueOf(task.getResult().getValue());
-                                mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").setValue((Double.parseDouble(capital3[0])-Double.parseDouble(operation.getText().toString())));
-                                Intent intentStep2=new Intent(TransactionActivity.this, DashboardActivity.class);
-                                startActivity(intentStep2);
+                Task<DataSnapshot> capital2 =  mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").get().addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    }
+                    else {
+                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                        capital3[0] = String.valueOf(task.getResult().getValue());
+                        mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").setValue((Double.parseDouble(capital3[0])-Double.parseDouble(operation.getText().toString())));
+                        Intent intentStep2=new Intent(TransactionActivity.this, DashboardActivity.class);
+                        startActivity(intentStep2);
 
-                            }
-                        }
-                    });
+                    }
+                });
 
-                }
             }
         });
 

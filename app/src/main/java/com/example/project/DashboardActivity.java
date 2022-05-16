@@ -22,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -32,7 +33,12 @@ public class DashboardActivity extends AppCompatActivity {
    // UserViewModel mUserViewModel;
     private DatabaseReference mDatabase;
 
-    static final String EXTRA_Transaction = "com.example.project.TransactionActivity";
+    static final String EXTRA_Transaction_label = "com.example.project.TransactionActivity";
+    static final String EXTRA_Transaction_amount = "com.example.project.TransactionActivity";
+    static final String EXTRA_Transaction_currency = "com.example.project.TransactionActivity";
+    //static final String EXTRA_Transaction_date = "com.example.project.TransactionActivity";
+    static final String EXTRA_Transaction_category = "com.example.project.TransactionActivity";
+    static final String EXTRA_Transaction_type = "com.example.project.TransactionActivity";
 
     Toolbar toolbar;
 
@@ -85,21 +91,24 @@ public class DashboardActivity extends AppCompatActivity {
         capitalList.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<Transaction> transactions = new ArrayList<>();
-        transactions.add(new Transaction("food", 5, "€", R.drawable.rocket));
-        transactions.add(new Transaction("candy", 6, "€", R.drawable.rocket));
-        transactions.add(new Transaction("soda", 7, "€", R.drawable.rocket));
-        transactions.add(new Transaction("museum", 8, "€", R.drawable.rocket));
-        transactions.add(new Transaction("flight", 9, "€", R.drawable.rocket));
+        transactions.add(new Transaction("food", 5, "€", R.drawable.rocket, "category1"));
+        transactions.add(new Transaction("candy", 6, "€", R.drawable.rocket, "bouffe"));
+        transactions.add(new Transaction("soda", 7, "€", R.drawable.rocket, "category3"));
+        transactions.add(new Transaction("museum", 8, "€", R.drawable.rocket, "category4"));
+        transactions.add(new Transaction("flight", 9, "€", R.drawable.rocket, "category5"));
 
         transactionAdapter = new TransactionAdapter(transactions);
 
-        transactionAdapter.setOnClickListener(v -> {
+        transactionAdapter.setOnClickListener(transaction -> {
             Intent intent = new Intent(DashboardActivity.this, TransactionActivity.class);
-            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
-            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
-            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
-            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
+            intent.putExtra(EXTRA_Transaction_label, transaction.getLabel());
+            intent.putExtra(EXTRA_Transaction_amount, String.valueOf(transaction.getAmount()));
+            intent.putExtra(EXTRA_Transaction_currency, transaction.getCurrency());
+            //intent.putExtra(EXTRA_Transaction_date, DateFormat.getDateInstance().format(transaction.getDate()));
+            intent.putExtra(EXTRA_Transaction_category, transaction.getCategory());
+            //intent.putExtra(EXTRA_Transaction_type, String.valueOf(transaction.getType()));
             startActivity(intent);
+
         });
 
         capitalList.setAdapter(transactionAdapter);
