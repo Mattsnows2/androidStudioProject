@@ -16,4 +16,7 @@
     <string name="expenses">Expenses</string>
     <string name="receipts">receipts</string>
     <string name="todo">TODO</string>
+    <string name="settings">settings</string>
+    <string name="account">account</string>
+    <string name="app_title" translatable="false">BI£€N$io</string>
 </resources>

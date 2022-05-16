@@ -17,7 +17,7 @@ public class ExpensesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_expenses);
 
         expensesList = findViewById(R.id.expenses_list);
         expensesList.hasFixedSize();

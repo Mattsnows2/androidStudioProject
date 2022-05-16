@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,10 @@ public class DashboardActivity extends AppCompatActivity {
 
     Button receipts_btn;
     Button expenses_btn;
+
+    static final String EXTRA_PET_NAME = "com.example.project.PET_NAME";
+
+    Toolbar toolbar;
 
     RecyclerView capitalList;
     TransactionAdapter transactionAdapter;
@@ -48,9 +53,30 @@ public class DashboardActivity extends AppCompatActivity {
 
         transactionAdapter = new TransactionAdapter(transactions);
 
-        transactionAdapter.setOnClickListener(transaction -> Toast.makeText(this, transaction.getLabel(), Toast.LENGTH_SHORT).show());
+        transactionAdapter.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, TransactionActivity.class);
+            /*intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
+            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
+            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
+            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());*/
+            startActivity(intent);
+        });
+
 
         capitalList.setAdapter(transactionAdapter);
+
+        toolbar = findViewById(R.id.toolbar);
+
+        /*toolbar.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        });
+
+        toolbar.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, AccountActivity.class);
+            startActivity(intent);
+        });*/
+
     }
 }
 

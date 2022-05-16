@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
 
-    private final ArrayList<Transaction> transactions;
+    private ArrayList<Transaction> transactions;
     private OnClickListener onClickListener;
 
     TransactionAdapter(ArrayList<Transaction> transactions) {
@@ -53,7 +53,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             super(itemView);
             label = itemView.findViewById(R.id.tv_label);
             amount = itemView.findViewById(R.id.tv_amount);
-            amount = itemView.findViewById(R.id.tv_currency);
+            currency = itemView.findViewById(R.id.tv_currency);
             //date = itemView.findViewById(R.id.tv_date);
             icon = itemView.findViewById(R.id.iv_icon);
 
