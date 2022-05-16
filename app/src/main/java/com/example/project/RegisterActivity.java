@@ -49,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAccount(email.getText().toString(), password.getText().toString());
+                createAccount(email.getText().toString().replaceAll("\\s", ""), password.getText().toString());
             }
         });
     }

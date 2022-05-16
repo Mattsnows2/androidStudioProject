@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.683"
-        android:text="CREATE ACCOUNT"
+        android:text="@string/create_account"
         android:textColor="@color/white"
         />
 
@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.799"
-        android:text="LOGIN"
+        android:text="@string/login"
         android:textColor="@color/white"
         />
 
@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Terms &amp; conditions"
+        android:text="@string/termsAndConditons"
         android:textColor="#C4C4C4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

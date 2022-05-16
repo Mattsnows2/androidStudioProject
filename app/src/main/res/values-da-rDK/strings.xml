@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="logoImage">"Logo billede "</string>
+    <string name="signup">"Tilmeld "</string>
+    <string name="signin">At logge ind</string>
+    <string name="pictureUsername">Brugerbillede</string>
+    <string name="picturePassword">Adgangskode billede</string>
+    <string name="errorMessage">Forkerte legitimationsoplysninger</string>
+    <string name="login">Log på</string>
+    <string name="enterYourCapital">Indtast din kapital</string>
+    <string name="chooseCategories">Vælg kategori</string>
+    <string name="settings">Indstillinger</string>
+    <string name="dark_theme">Mørkt tema</string>
+    <string name="apply">Ansøge</string>
+    <string name="language">Tale</string>
+    <string name="create_account">Opret konto</string>
+    <string name="sign_in">At logge ind</string>
+    <string name="username">Brugernavn</string>
+    <string name="password">Adgangskode</string>
+    <string name="go">Gå</string>
+    <string name="keep_me_logged_in">Forbliv logget ind</string>
+    <string name="good2seeU">Godt at se dig sir</string>
+    <string name="capital">Kapital</string>
+    <string name="next">Næste</string>
+    <string name="name">Navn</string>
+    <string name="set_email">Indstil e-mail</string>
+    <string name="submit">Indsend</string>
+    <string name="profile">Rediger profil</string>
+    <string name="select_your_currency">Vælg din valuta</string>
+    <string name="termsAndConditons">Vilkår og Betingelser</string>
+</resources>
