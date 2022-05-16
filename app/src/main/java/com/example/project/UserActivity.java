@@ -9,8 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,14 +18,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import ViewModel.UserViewModel;
-
 public class UserActivity extends AppCompatActivity {
-    UserViewModel mUserViewModel;
+    //UserViewModel mUserViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+       // mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user!=null){
 

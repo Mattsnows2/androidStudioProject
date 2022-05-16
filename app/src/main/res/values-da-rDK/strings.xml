@@ -28,4 +28,8 @@
     <string name="profile">Rediger profil</string>
     <string name="select_your_currency">Vælg din valuta</string>
     <string name="termsAndConditons">Vilkår og Betingelser</string>
+    <string name="account">account</string>
+    <string name="expenses">Expenses</string>
+    <string name="receipts">receipts</string>
+    <string name="todo">TODO</string>
 </resources>

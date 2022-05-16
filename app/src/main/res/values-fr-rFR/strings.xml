@@ -28,4 +28,9 @@
     <string name="profile">Modifier le profil</string>
     <string name="submit">Enregistrer</string>
     <string name="set_email">Envoyer email</string>
+
+    <string name="expenses">Expenses</string>
+    <string name="receipts">receipts</string>
+    <string name="todo">TODO</string>
+    <string name="account">account</string>
 </resources>

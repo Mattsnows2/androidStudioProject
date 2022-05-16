@@ -2,7 +2,6 @@ package com.example.project;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,9 +19,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import Models.User;
-import ViewModel.UserViewModel;
-
 public class RegisterActivity extends AppCompatActivity {
 
     Button registerButton;
@@ -30,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    private UserViewModel mUserViewModel;
+    //private UserViewModel mUserViewModel;
 
 
     @Override

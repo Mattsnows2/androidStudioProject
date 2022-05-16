@@ -1,16 +1,15 @@
 package Models;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "user")
 public class User {
 
-    @PrimaryKey(autoGenerate = true)
+
     private int id;
     public String email;
 
-    public int expenses, receipts;
+    public int expenses;
+
+    public Receipts receipts;
 
     public Double capital;
 
@@ -18,7 +17,7 @@ public class User {
 
     }
 
-    public User(String id,String email, int expenses, int receipts, Double capital) {
+    public User(String id,String email, int expenses, Receipts receipts, Double capital) {
         this.email = email;
 
         this.expenses = expenses;
@@ -26,7 +25,7 @@ public class User {
         this.capital = capital;
     }
 
-    public void User2(int id, String email, int expenses, int receipts, Double capital){
+    public void User2(int id, String email, int expenses, Receipts receipts, Double capital){
         this.email = email;
 
         this.expenses = expenses;
@@ -60,11 +59,11 @@ public class User {
         this.expenses = expenses;
     }
 
-    public int getReceipts() {
+    public Receipts getReceipts() {
         return receipts;
     }
 
-    public void setReceipts(int receipts) {
+    public void setReceipts(Receipts receipts) {
         this.receipts = receipts;
     }
 

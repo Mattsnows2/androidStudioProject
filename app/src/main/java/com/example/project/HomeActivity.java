@@ -5,21 +5,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
-import ViewModel.UserViewModel;
 
 public class HomeActivity extends AppCompatActivity {
 
     public String Tag="inforamtion";
-    private UserViewModel mUserViewModel;
+    //private UserViewModel mUserViewModel;
     Button buttonLogin, buttonCreateAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+       // mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 

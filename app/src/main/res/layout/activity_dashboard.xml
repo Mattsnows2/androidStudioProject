@@ -25,14 +25,18 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <Button
+    <TextView
         android:id="@+id/capitalBtn"
-        style="@style/Widget.Material3.Button.OutlinedButton"
+
         android:layout_width="252dp"
         android:layout_height="124dp"
         android:layout_marginTop="20dp"
+        android:background="@color/blue"
+
         android:backgroundTint="@color/blue"
         android:text="@string/capital"
+        android:paddingTop="40dp"
+        android:paddingLeft="80dp"
         android:textColor="@color/darkestBlue"
         android:textSize="24sp"
         app:iconTint="@color/black"
