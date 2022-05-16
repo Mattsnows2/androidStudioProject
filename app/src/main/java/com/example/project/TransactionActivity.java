@@ -19,6 +19,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Date;
+
 import Models.Expenses;
 import Models.Receipts;
 
@@ -33,6 +35,7 @@ public class TransactionActivity extends AppCompatActivity {
     TextView petTransacTV;
 
     private DatabaseReference mDatabase;
+    Date date = new Date();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -68,9 +71,9 @@ public class TransactionActivity extends AppCompatActivity {
                 final String[] capital3 = new String[1];
                 Log.d("tdst", typeOperation.getText().toString());
                 if(typeOperation.getText().toString().equals(s4)){
-                    Receipts receipts = new Receipts("lebel","car",Double.parseDouble(operation.getText().toString()));
-                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("receipts").child("operation").setValue(Double.parseDouble(operation.getText().toString()));
-                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("receipts").child("operation").child("categorie").setValue((categories.getText().toString()));
+                    Receipts receipts = new Receipts("lebel",categories.getText().toString(),Double.parseDouble(operation.getText().toString()));
+                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("receipts").child(String.valueOf(date)).setValue(receipts);
+
                     Task<DataSnapshot> capital2 =  mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -87,9 +90,9 @@ public class TransactionActivity extends AppCompatActivity {
                         }
                     });
                     }else{
-                    Expenses expenses = new Expenses("label","categories", Double.parseDouble((operation.getText().toString())));
-                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("expenses").child("operation").setValue(Double.parseDouble(operation.getText().toString()));
-                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("expenses").child("categories").setValue((categories.getText().toString()));
+                    Expenses expenses = new Expenses("label",categories.getText().toString(), Double.parseDouble((operation.getText().toString())));
+                    mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("expenses").child(String.valueOf(date)).setValue(expenses);
+
                     Task<DataSnapshot> capital2 =  mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("capital").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
