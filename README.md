@@ -19,5 +19,9 @@ User Stories: (Template: As a user, I want ……. so that I can…….)
 ● As a user, I want to be able to choose which currency to use so I don’t have to convert
 
 
-Link of github : https://github.com/Mattsnows2/androidStudi
+Link youtube : 
+
+We implmented the main fetuares that we wanted, but we have some problem with the set uo of archiecture.
+
+
 
