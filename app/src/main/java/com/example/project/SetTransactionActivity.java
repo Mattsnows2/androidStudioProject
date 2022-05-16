@@ -39,9 +39,9 @@ public class SetTransactionActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_type)) {
+      /*  if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_type)) {
             petType = bundle.getString(DashboardActivity.EXTRA_Transaction_type);
-        }
+        }*/
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user!=null){

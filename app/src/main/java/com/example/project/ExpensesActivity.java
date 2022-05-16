@@ -26,6 +26,7 @@ public class ExpensesActivity extends AppCompatActivity {
 
     RecyclerView expensesList;
     TransactionAdapter transactionAdapter;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

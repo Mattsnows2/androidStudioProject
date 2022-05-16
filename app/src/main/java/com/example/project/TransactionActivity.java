@@ -63,7 +63,7 @@ public class TransactionActivity extends AppCompatActivity {
         petTransacTV_date = findViewById(R.id.petTransac_date_TV);
         petTransacTV_category = findViewById(R.id.petTransac_category_TV);
 
-        Bundle bundle = getIntent().getExtras();
+      /*  Bundle bundle = getIntent().getExtras();
 
         if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_label)) {
             String petLabel = bundle.getString(DashboardActivity.EXTRA_Transaction_label);
@@ -81,9 +81,9 @@ public class TransactionActivity extends AppCompatActivity {
             String petDate = bundle.getString(DashboardActivity.EXTRA_Transaction_date);
             petTransacTV_date.setText(petDate);
         }*/
-        if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_category)) {
+       /* if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction_category)) {
             String petCategory = bundle.getString(DashboardActivity.EXTRA_Transaction_category);
             petTransacTV_category.setText(petCategory);
-        }
+        }*/
     }
 }
