@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -25,11 +26,15 @@ public class DashboardActivity extends AppCompatActivity {
 
         receipts_btn = findViewById(R.id.receiptsBtn);
         receipts_btn.setOnClickListener(v -> {
-            //DO SOMETHING WHEN CLICKED!
+            Intent intent = new Intent(DashboardActivity.this, ReceiptsActivity.class);
+            startActivity(intent);
+
         });
         expenses_btn = findViewById(R.id.expensesBtn);
         expenses_btn.setOnClickListener(v -> {
-            //DO SOMETHING WHEN CLICKED!
+            Intent intent = new Intent(DashboardActivity.this, ExpensesActivity.class);
+            startActivity(intent);
+
         });
 
         capital_list_item = findViewById(R.id.transactionList);

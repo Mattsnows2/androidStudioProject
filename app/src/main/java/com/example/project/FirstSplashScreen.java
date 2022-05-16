@@ -2,17 +2,15 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
 import android.os.Handler;
-import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import io.bloco.faker.Faker;
-
+@SuppressLint("CustomSplashScreen")
 public class FirstSplashScreen extends AppCompatActivity {
 
     Animation topAnim;
@@ -27,15 +25,12 @@ public class FirstSplashScreen extends AppCompatActivity {
 
         image.setAnimation(topAnim);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        new Handler().postDelayed(() -> {
 
-                Intent intent = new Intent(FirstSplashScreen.this, HomeActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(FirstSplashScreen.this, DashboardActivity.class);
+            startActivity(intent);
 
-                finish();
-            }
+            finish();
         },3000);
     }
 }
