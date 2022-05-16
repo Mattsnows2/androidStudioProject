@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ReceiptsActivity extends AppCompatActivity {
 
-    RecyclerView capital_list_item;
+    RecyclerView receiptsList;
     TransactionAdapter transactionAdapter;
 
     @Override
@@ -19,9 +19,9 @@ public class ReceiptsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        capital_list_item = findViewById(R.id.receiptsList);
-        capital_list_item.hasFixedSize();
-        capital_list_item.setLayoutManager(new LinearLayoutManager(this));
+        receiptsList = findViewById(R.id.receipts_list);
+        receiptsList.hasFixedSize();
+        receiptsList.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<Transaction> receipts = new ArrayList<>();
         receipts.add(new Transaction("cine", 16, "dkk", R.drawable.password));
@@ -30,6 +30,6 @@ public class ReceiptsActivity extends AppCompatActivity {
 
         transactionAdapter.setOnClickListener(transaction -> Toast.makeText(this, transaction.getLabel(), Toast.LENGTH_SHORT).show());
 
-        capital_list_item.setAdapter(transactionAdapter);
+        receiptsList.setAdapter(transactionAdapter);
     }
 }

@@ -34,6 +34,12 @@
             android:name=".DashboardActivity"
             android:exported="true" />
         <activity
+            android:name=".ExpensesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ReceiptsActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" >
 

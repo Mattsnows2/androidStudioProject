@@ -31,7 +31,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         viewHolder.label.setText(transactions.get(position).getLabel());
-        viewHolder.amount.setText(transactions.get(position).getAmount());
+        viewHolder.amount.setText(String.valueOf(transactions.get(position).getAmount()));
         viewHolder.currency.setText(transactions.get(position).getCurrency());
         //viewHolder.name.setText(transaction.get(position).getDate());
         viewHolder.icon.setImageResource(transactions.get(position).getIconId());

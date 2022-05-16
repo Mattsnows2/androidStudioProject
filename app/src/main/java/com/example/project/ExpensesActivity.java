@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ExpensesActivity extends AppCompatActivity {
 
-    RecyclerView capital_list_item;
+    RecyclerView expensesList;
     TransactionAdapter transactionAdapter;
 
     @Override
@@ -19,9 +19,9 @@ public class ExpensesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        capital_list_item = findViewById(R.id.expensesList);
-        capital_list_item.hasFixedSize();
-        capital_list_item.setLayoutManager(new LinearLayoutManager(this));
+        expensesList = findViewById(R.id.expenses_list);
+        expensesList.hasFixedSize();
+        expensesList.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<Transaction> expenses = new ArrayList<>();
         expenses.add(new Transaction("KFC", 60, "€", R.drawable.email));
@@ -30,6 +30,6 @@ public class ExpensesActivity extends AppCompatActivity {
 
         transactionAdapter.setOnClickListener(transaction -> Toast.makeText(this, transaction.getLabel(), Toast.LENGTH_SHORT).show());
 
-        capital_list_item.setAdapter(transactionAdapter);
+        expensesList.setAdapter(transactionAdapter);
     }
 }

@@ -16,7 +16,7 @@ public class DashboardActivity extends AppCompatActivity {
     Button receipts_btn;
     Button expenses_btn;
 
-    RecyclerView capital_list_item;
+    RecyclerView capitalList;
     TransactionAdapter transactionAdapter;
 
     @Override
@@ -28,27 +28,29 @@ public class DashboardActivity extends AppCompatActivity {
         receipts_btn.setOnClickListener(v -> {
             Intent intent = new Intent(DashboardActivity.this, ReceiptsActivity.class);
             startActivity(intent);
-
         });
         expenses_btn = findViewById(R.id.expensesBtn);
         expenses_btn.setOnClickListener(v -> {
             Intent intent = new Intent(DashboardActivity.this, ExpensesActivity.class);
             startActivity(intent);
-
         });
 
-        capital_list_item = findViewById(R.id.transactionList);
-        capital_list_item.hasFixedSize();
-        capital_list_item.setLayoutManager(new LinearLayoutManager(this));
+        capitalList = findViewById(R.id.transactionList);
+        capitalList.hasFixedSize();
+        capitalList.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<Transaction> transactions = new ArrayList<>();
         transactions.add(new Transaction("food", 5, "€", R.drawable.rocket));
+        transactions.add(new Transaction("candy", 6, "€", R.drawable.rocket));
+        transactions.add(new Transaction("soda", 7, "€", R.drawable.rocket));
+        transactions.add(new Transaction("museum", 8, "€", R.drawable.rocket));
+        transactions.add(new Transaction("flight", 9, "€", R.drawable.rocket));
 
         transactionAdapter = new TransactionAdapter(transactions);
 
         transactionAdapter.setOnClickListener(transaction -> Toast.makeText(this, transaction.getLabel(), Toast.LENGTH_SHORT).show());
 
-        capital_list_item.setAdapter(transactionAdapter);
+        capitalList.setAdapter(transactionAdapter);
     }
 }
 
