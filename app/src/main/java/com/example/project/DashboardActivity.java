@@ -95,10 +95,10 @@ public class DashboardActivity extends AppCompatActivity {
 
         transactionAdapter.setOnClickListener(v -> {
             Intent intent = new Intent(DashboardActivity.this, TransactionActivity.class);
-            /*intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
-            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
-            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
-            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());*/
+            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
+            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
+            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
+            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
             startActivity(intent);
         });
 

@@ -39,7 +39,7 @@ public class TransactionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //petTransacTV = findViewById(R.id.petTransacTV);
+        petTransacTV = findViewById(R.id.petTransacTV);
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null && bundle.containsKey(DashboardActivity.EXTRA_Transaction)) {
