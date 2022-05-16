@@ -19,8 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -84,28 +87,57 @@ public class DashboardActivity extends AppCompatActivity {
         capitalList.hasFixedSize();
         capitalList.setLayoutManager(new LinearLayoutManager(this));
 
+
+
         ArrayList<Transaction> transactions = new ArrayList<>();
-        transactions.add(new Transaction("food", 5, "€", R.drawable.rocket));
+        Query receipts =mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("receipts");
+        receipts.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot postSnaphot: snapshot.getChildren()){
+
+                    transactions.add(new Transaction(postSnaphot.getValue().toString()));
+
+                    System.out.println(postSnaphot.getValue().toString());
+
+                    transactionAdapter = new TransactionAdapter(transactions);
+
+
+                    transactionAdapter.setOnClickListener(v -> {
+                        Intent intent = new Intent(DashboardActivity.this, TransactionActivity.class);
+           /* intent.putExtra(EXTRA_Transaction, Transaction.getText().toString());
+            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
+            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
+            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());*/
+                        startActivity(intent);
+                    });
+                    capitalList.setAdapter(transactionAdapter);
+
+                    toolbar = findViewById(R.id.toolbar);
+                    setSupportActionBar(toolbar);
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        /*transactions.add(new Transaction("food", 5, "€", R.drawable.rocket));
         transactions.add(new Transaction("candy", 6, "€", R.drawable.rocket));
         transactions.add(new Transaction("soda", 7, "€", R.drawable.rocket));
         transactions.add(new Transaction("museum", 8, "€", R.drawable.rocket));
-        transactions.add(new Transaction("flight", 9, "€", R.drawable.rocket));
+        transactions.add(new Transaction("flight", 9, "€", R.drawable.rocket));*/
 
-        transactionAdapter = new TransactionAdapter(transactions);
 
-        transactionAdapter.setOnClickListener(v -> {
-            Intent intent = new Intent(DashboardActivity.this, TransactionActivity.class);
-            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
-            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
-            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
-            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
-            startActivity(intent);
-        });
 
-        capitalList.setAdapter(transactionAdapter);
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

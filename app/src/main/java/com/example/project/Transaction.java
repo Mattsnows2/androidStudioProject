@@ -3,11 +3,29 @@ package com.example.project;
 import java.util.Date;
 
 public class Transaction {
-    private String label;
+
+    private String transactions;
+
+    Transaction(String transactions){
+        this.transactions=transactions;
+
+
+    }
+
+    public String getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(String transactions) {
+        this.transactions = transactions;
+    }
+/* private String label;
     private int amount;
     private String currency;
     private Date date;
     private int iconId;
+
+
 
     Transaction(String label, int amount, String currency, int iconId) {
         this.label = label;
@@ -35,5 +53,5 @@ public class Transaction {
 
     public int getIconId() {
         return iconId;
-    }
+    }*/
 }
