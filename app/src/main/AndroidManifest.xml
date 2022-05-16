@@ -14,6 +14,13 @@
             android:name=".TransactionActivity"
             android:exported="true" />
         <activity
+        android:name=".SetTransactionActivity"
+        android:exported="true" />
+
+        <activity
+            android:name=".ChartTotal"
+            android:exported="true" />
+        <activity
             android:name=".UserActivity"
             android:exported="true" />
         <activity
@@ -40,6 +47,15 @@
             android:exported="true" />
         <activity
             android:name=".HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ReceiptsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ExpensesActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

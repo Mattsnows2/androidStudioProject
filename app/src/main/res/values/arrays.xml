@@ -8,4 +8,11 @@
         <item>₩</item>
         <item>DKK</item>
     </string-array>
+
+    <string-array name="category_array">
+        <item>Food</item>
+        <item>Work</item>
+        <item>Salary</item>
+        <item>entertainment</item>
+    </string-array>
 </resources>

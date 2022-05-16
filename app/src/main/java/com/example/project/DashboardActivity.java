@@ -3,13 +3,14 @@ package com.example.project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,8 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -31,7 +35,7 @@ public class DashboardActivity extends AppCompatActivity {
    // UserViewModel mUserViewModel;
     private DatabaseReference mDatabase;
 
-    static final String EXTRA_PET_NAME = "com.example.project.PET_NAME";
+    static final String EXTRA_Transaction = "com.example.project.TransactionActivity";
 
     Toolbar toolbar;
 
@@ -43,8 +47,6 @@ public class DashboardActivity extends AppCompatActivity {
       //  mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user!=null){
-
-
 
         }else{
             Log.i("testConnection","pas connécté");
@@ -64,12 +66,11 @@ public class DashboardActivity extends AppCompatActivity {
                     capital = findViewById(R.id.capitalBtn);
 
                     capital.setText(capital3[0]);
-
                 }
             }
         });
-        setContentView(R.layout.activity_dashboard);
 
+        setContentView(R.layout.activity_dashboard);
 
         receipts_btn = findViewById(R.id.receiptsBtn);
         receipts_btn.setOnClickListener(v -> {
@@ -86,39 +87,75 @@ public class DashboardActivity extends AppCompatActivity {
         capitalList.hasFixedSize();
         capitalList.setLayoutManager(new LinearLayoutManager(this));
 
+
+
         ArrayList<Transaction> transactions = new ArrayList<>();
-        transactions.add(new Transaction("food", 5, "€", R.drawable.rocket));
+        Query receipts =mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("receipts");
+        receipts.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot postSnaphot: snapshot.getChildren()){
+
+                    transactions.add(new Transaction(postSnaphot.getValue().toString()));
+
+                    System.out.println(postSnaphot.getValue().toString());
+
+                    transactionAdapter = new TransactionAdapter(transactions);
+
+
+                    transactionAdapter.setOnClickListener(v -> {
+                        Intent intent = new Intent(DashboardActivity.this, TransactionActivity.class);
+           /* intent.putExtra(EXTRA_Transaction, Transaction.getText().toString());
+            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
+            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());
+            intent.putExtra(EXTRA_Transaction, transactionField.getText().toString());*/
+                        startActivity(intent);
+                    });
+                    capitalList.setAdapter(transactionAdapter);
+
+                    toolbar = findViewById(R.id.toolbar);
+                    setSupportActionBar(toolbar);
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        /*transactions.add(new Transaction("food", 5, "€", R.drawable.rocket));
         transactions.add(new Transaction("candy", 6, "€", R.drawable.rocket));
         transactions.add(new Transaction("soda", 7, "€", R.drawable.rocket));
         transactions.add(new Transaction("museum", 8, "€", R.drawable.rocket));
-        transactions.add(new Transaction("flight", 9, "€", R.drawable.rocket));
-
-        transactionAdapter = new TransactionAdapter(transactions);
-
-        transactionAdapter.setOnClickListener(v -> {
-            Intent intent = new Intent(DashboardActivity.this, TransactionActivity.class);
-            /*intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
-            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
-            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());
-            intent.putExtra(EXTRA_PET_NAME, petNameField.getText().toString());*/
-            startActivity(intent);
-        });
+        transactions.add(new Transaction("flight", 9, "€", R.drawable.rocket));*/
 
 
-        capitalList.setAdapter(transactionAdapter);
 
-        toolbar = findViewById(R.id.toolbar);
 
-        /*toolbar.setOnClickListener(v -> {
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.appbar, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.action_favorite) {
             Intent intent = new Intent(DashboardActivity.this, SettingsActivity.class);
             startActivity(intent);
-        });
-
-        toolbar.setOnClickListener(v -> {
-            Intent intent = new Intent(DashboardActivity.this, AccountActivity.class);
+        } else if (itemId == R.id.action_settings) {
+            Intent intent = new Intent(DashboardActivity.this, UserActivity.class);
             startActivity(intent);
-        });*/
-
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

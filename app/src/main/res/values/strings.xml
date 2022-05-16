@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Project</string>
-    <string name="titleApp">Budget App</string>
-    <string name="step2">Step2</string>
-    <string name="step1">Step1</string>
+    <string name="app_name" translatable="false">BI£€N$io</string>
+    <string name="titleApp" translatable="false">Budget Application</string>
+    <string name="step2" translatable="false">Step2</string>
+
+    <string name="step1" translatable="false">Step1</string>
     <string name="logoImage">picture of the logo</string>
     <string name="signup">Sign-up</string>
     <string name="signin">Sign-in</string>
@@ -40,9 +41,13 @@
     <string name="submit">Submit</string>
     <string name="set_email">Set Email</string>
     <string name="termsAndConditons">Termes &amp; conditions</string>
+
     <string name="delete_account">Delete account</string>
     <string name="email">email</string>
     <string name="set_password">Set Password</string>
     <string name="confirm_delete">Confirm Delete</string>
     <string name="r_u_sure">Are you sure ?</string>
+
+    <string name="mettez_votre_montant">Mettez votre montant</string>
+
 </resources>

@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/action_favorite"
-        app:showAsAction="ifRoom"
-        android:icon="@android:drawable/btn_star_big_on"
-        android:title="@string/step1" />
+        android:icon="@drawable/settings_icon"
+        android:title="@string/step1"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_settings"
-        android:icon="@drawable/email"
+        android:icon="@drawable/user"
         android:title="@string/app_name"
         app:showAsAction="ifRoom" />
 

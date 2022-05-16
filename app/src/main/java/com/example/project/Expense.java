@@ -2,13 +2,13 @@ package com.example.project;
 
 public class Expense {
     private String type;
-    private float amount;
+    private Double amount;
 
-    public float getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
@@ -20,7 +20,7 @@ public class Expense {
         this.type = type;
     }
 
-    public Expense(String type,float amount){
+    public Expense(String type,Double amount){
         this.type = type;
         this.amount = amount;
     }
