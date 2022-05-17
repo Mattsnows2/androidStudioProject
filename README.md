@@ -21,7 +21,13 @@ User Stories: (Template: As a user, I want ……. so that I can…….)
 
 Link youtube : https://www.youtube.com/watch?v=08FA0p3aCVY
 
-We implmented the main fetuares that we wanted, but we have some problem with the set uo of archiecture.
+We implmented the main fetuares that we wanted, but we have some problem with the set up of archiecture.
+
+Project Done by: 
+- Matthias Belot (326489)
+- Matis Aaron Touré (326393)
+- Javier Renero (313300)
+- Guillaume (326441)
 
 
 
